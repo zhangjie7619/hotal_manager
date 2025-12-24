@@ -19,28 +19,28 @@
             :model="loginForm"
             :rules="loginRules"
             class="account-form"
+            label-width="80px"
+            label-position="right"
         >
           <!-- 用户名 -->
-          <el-form-item prop="username">
+          <el-form-item label="用户名" prop="loginId">
             <el-input
-                v-model="loginForm.username"
+                v-model="loginForm.loginId"
                 placeholder="请输入用户名"
                 prefix-icon="User"
-                size="large"
-                autocomplete="username"
+                autocomplete="loginId"
             />
           </el-form-item>
 
           <!-- 密码 -->
-          <el-form-item prop="password">
+          <el-form-item label="密码" prop="loginPwd">
             <el-input
-                v-model="loginForm.password"
-                type="password"
+                v-model="loginForm.loginPwd"
+                type="loginPwd"
                 placeholder="请输入密码"
                 prefix-icon="Lock"
-                size="large"
-                show-password
-                autocomplete="current-password"
+                show-loginPwd
+                autocomplete="current-loginPwd"
             />
           </el-form-item>
 
@@ -81,19 +81,19 @@ const isLoading = ref<boolean>(false)
 
 // 登录表单数据
 const loginForm = reactive({
-  username: '',
-  password: '',
+  loginId: '',
+  loginPwd: '',
   factory: '', // 厂别
   captcha: '' // 验证码
 })
 
 // 表单验证规则
 const loginRules = reactive({
-  username: [
+  loginId: [
     {required: true, message: '请输入用户名', trigger: 'blur'},
     {min: 3, max: 20, message: '用户名长度在 3 到 20 个字符', trigger: 'blur'}
   ],
-  password: [
+  loginPwd: [
     {required: true, message: '请输入密码', trigger: 'blur'},
     {min: 6, max: 20, message: '密码长度在 6 到 20 个字符', trigger: 'blur'}
   ],
@@ -132,7 +132,7 @@ const handleLogin = async () => {
 
   // 左侧插画区域（匹配参考图的蓝色渐变+插画）
   .login-illustration {
-    width:90%;
+    width: 90%;
     height: 100%;
     //background: linear-gradient(135deg, #4a80ff 0%, #1e57d9 100%);
     background-image: url('../image/login.png'); // 替换为实际插画
@@ -144,7 +144,7 @@ const handleLogin = async () => {
   .login-panel {
     width: 40%;
     height: 100%;
-    padding: 60px 80px;
+    padding: 60px 50px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
