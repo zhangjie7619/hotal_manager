@@ -131,7 +131,7 @@ const handleLogin = async () => {
 
   // 左侧插画区域（匹配参考图的蓝色渐变+插画）
   .login-illustration {
-    width: 90%;
+    width: 75%;
     height: 100%;
     //background: linear-gradient(135deg, #4a80ff 0%, #1e57d9 100%);
     background-image: url('../image/login.png'); // 替换为实际插画
@@ -141,11 +141,12 @@ const handleLogin = async () => {
 
   // 右侧登录面板
   .login-panel {
-    width: 40%;
-    height: 100%;
-    padding: 60px 50px;
-    box-sizing: border-box;
     display: flex;
+    justify-content: space-evenly;
+    width: 25%;
+    height: 100%;
+    padding: 20% 50px;
+    box-sizing: border-box;
     flex-direction: column;
 
     // 顶部Logo和标题
@@ -155,7 +156,6 @@ const handleLogin = async () => {
         font-size: 35px;
         text-align: center;
         font-weight: 600;
-        margin-top: 20%;
       }
     }
 
