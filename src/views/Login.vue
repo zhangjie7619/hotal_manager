@@ -2,9 +2,8 @@
   <div class="login-page">
     <!-- 左侧插画区域 -->
     <div class="login-illustration">
-      <!-- 替换为实际设计图的背景 -->
-    </div>
 
+    </div>
     <!-- 右侧登录面板 -->
     <div class="login-panel">
       <!-- 顶部Logo和标题 -->
