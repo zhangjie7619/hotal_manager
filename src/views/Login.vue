@@ -18,25 +18,24 @@
             :model="loginForm"
             :rules="loginRules"
             class="account-form"
-            label-width="80px"
             label-position="right"
         >
           <!-- 用户名 -->
-          <el-form-item label="用户名" prop="loginId">
+          <el-form-item prop="loginId">
             <el-input
                 v-model="loginForm.loginId"
-                placeholder="请输入用户名"
+                placeholder="用户名"
                 prefix-icon="User"
                 autocomplete="loginId"
             />
           </el-form-item>
 
           <!-- 密码 -->
-          <el-form-item label="密码" prop="loginPwd">
+          <el-form-item prop="loginPwd">
             <el-input
                 v-model="loginForm.loginPwd"
                 type="loginPwd"
-                placeholder="请输入密码"
+                placeholder="密码"
                 prefix-icon="Lock"
                 show-loginPwd
                 autocomplete="current-loginPwd"
@@ -70,6 +69,7 @@
 <script setup lang="ts">
 import {ref, reactive} from 'vue'
 import {ElForm, ElFormItem, ElInput, ElButton, ElMessage} from 'element-plus'
+import {$Login} from "../api/admin.ts";
 
 // 表单引用
 const loginFormRef = ref<InstanceType<typeof ElForm>>()
@@ -110,6 +110,7 @@ const handleLogin = async () => {
     if (valid) {
       isLoading.value = true
       setTimeout(() => {
+        $Login(loginForm)
         ElMessage.success('登录成功！')
         isLoading.value = false
         // 登录成功后跳转逻辑
